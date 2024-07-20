@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:news_app_project/views/firstScreen.dart';
+import 'package:news_app_project/views/HomePage.dart';
 
 void main(){
-
+  runApp(NewsApp());
 }
 class NewsApp extends StatelessWidget {
   const NewsApp({super.key});
@@ -10,7 +10,10 @@ class NewsApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: FirstScreen(),
+      debugShowCheckedModeBanner: false,
+      home: HomePage(
+        
+      ),
     );
   }
 }
