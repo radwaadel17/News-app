@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app_project/componets/cardCategory.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -30,49 +31,10 @@ class HomePage extends StatelessWidget {
         ],
        ),
     ),
-    body: ListView(
-      
-      children: [
-        Row(
-          children: [
-            Card(
-              img: 'assets/business.avif',
-              txt: 'Bussiness'
-            ),
-
-
-          ],
-        )
-          
-      ],
-
+    body: CardCategory(
+      img: 'assets/business.avif',
+      txt: 'Business',
     ),
     );
-  }
 }
-class Card extends StatelessWidget {
-  const Card({super.key , this.img , this.txt});
- final String ?  img ; 
- final String ? txt ;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 150,
-      width: 200,
-      //color: Colors.black,
-      child: Stack(
-        children: [
-          Image.asset(img!),
-          Center(
-            child: Text( txt!,
-            style: TextStyle(
-              color: Colors.white ,
-              fontSize: 20,
-            ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
 }
