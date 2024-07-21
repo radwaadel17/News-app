@@ -12,7 +12,6 @@ class NewsApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: HomePage(
-        
       ),
     );
   }
