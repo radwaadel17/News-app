@@ -61,7 +61,33 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
-      body: Column(
+      body: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: SizedBox(
+            height: 100,
+            child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: catList.length,
+                itemBuilder: (context, cnt) {
+                  return CardCategory(obj: catList[cnt]);
+                }),
+          )
+          ),
+          SliverList(delegate: SliverChildBuilderDelegate((context, index) {
+            return ListView.builder(               
+                itemCount: 5,
+                itemBuilder: (context, cnt) {
+                  return NewsList();
+                }
+            );
+          })),
+        ],
+
+      ),
+        
+      );
+      /* Column(
         children: [
           SizedBox(
             height: 100,
@@ -74,13 +100,15 @@ class HomePage extends StatelessWidget {
           ),
           Expanded(
             child: ListView.builder(
+               
                 itemCount: 5,
                 itemBuilder: (context, cnt) {
                   return NewsList();
-                }),
-          )
+                }
+            ),
+          ),
+
         ],
-      ),
-    );
-  }
+      ), */
+    }
 }
