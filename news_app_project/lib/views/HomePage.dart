@@ -65,50 +65,22 @@ class HomePage extends StatelessWidget {
         slivers: [
           SliverToBoxAdapter(
             child: SizedBox(
-            height: 100,
-            child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: catList.length,
-                itemBuilder: (context, cnt) {
-                  return CardCategory(obj: catList[cnt]);
-                }),
-          )
-          ),
-          SliverList(delegate: SliverChildBuilderDelegate((context, index) {
-            return ListView.builder(               
-                itemCount: 5,
-                itemBuilder: (context, cnt) {
-                  return NewsList();
-                }
-            );
-          })),
-        ],
-
-      ),
-        
-      );
-      /* Column(
-        children: [
-          SizedBox(
-            height: 100,
-            child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: catList.length,
-                itemBuilder: (context, cnt) {
-                  return CardCategory(obj: catList[cnt]);
-                }),
-          ),
-          Expanded(
-            child: ListView.builder(
-               
-                itemCount: 5,
-                itemBuilder: (context, cnt) {
-                  return NewsList();
-                }
+              height: 100,
+              child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: catList.length,
+                  itemBuilder: (context, cnt) {
+                    return CardCategory(obj: catList[cnt]);
+                  }),
             ),
           ),
-
+          SliverList(
+            delegate: SliverChildBuilderDelegate((context, index) {
+              return NewsList();
+            }, childCount: 10),
+          ),
         ],
-      ), */
-    }
+      ),
+    );
+  }
 }

@@ -6,6 +6,7 @@ class NewsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+    
       children: [
         Padding(
                padding: const EdgeInsets.all(9.0),
