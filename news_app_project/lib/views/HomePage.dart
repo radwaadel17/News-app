@@ -3,6 +3,8 @@ import 'package:news_app_project/componets/cardCategory.dart';
 import 'package:news_app_project/componets/news_list.dart';
 import 'package:news_app_project/models/card.dart';
 
+import '../componets/HomePageAll.dart';
+
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
   final List<card> catList = const [
@@ -61,26 +63,7 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
-      body: CustomScrollView(
-        slivers: [
-          SliverToBoxAdapter(
-            child: SizedBox(
-              height: 100,
-              child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: catList.length,
-                  itemBuilder: (context, cnt) {
-                    return CardCategory(obj: catList[cnt]);
-                  }),
-            ),
-          ),
-          SliverList(
-            delegate: SliverChildBuilderDelegate((context, index) {
-              return NewsList();
-            }, childCount: 10),
-          ),
-        ],
-      ),
+      body: HomePageAll(catList: catList),
     );
   }
 }
