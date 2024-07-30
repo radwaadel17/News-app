@@ -5,7 +5,7 @@ import 'package:dio/dio.dart';
 
 
 void main(){
-  NewsServices(Dio()).getGenralNews();
+  
   runApp(NewsApp());
 }
 final dio = Dio();

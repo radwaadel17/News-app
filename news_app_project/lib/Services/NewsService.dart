@@ -3,6 +3,7 @@ import 'package:news_app_project/models/ArticlesClass.dart';
 class NewsServices {
   final Dio dio;
   const NewsServices(this.dio);
+  
   Future<List<ArticlesModel>> getGenralNews() async {
     Response response = await dio.get(
         'https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=e16edadcc5a34f43bf21fa9999da78e8');

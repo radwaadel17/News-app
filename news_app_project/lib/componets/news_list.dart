@@ -1,44 +1,51 @@
 import 'package:flutter/material.dart';
 
-class NewsList extends StatelessWidget {
-  const NewsList({super.key});
+import '../models/ArticlesClass.dart';
 
+class NewsList extends StatelessWidget {
+  NewsList({super.key , required this.articalData});
+  ArticlesModel articalData ;
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Padding(
+      padding: const EdgeInsets.all(9.0),
+      child: Column(
     
-      children: [
-        Padding(
-               padding: const EdgeInsets.all(9.0),
-               child: ClipRRect(
-                borderRadius: BorderRadius.circular(16),
-                child: Image.asset('assets/health.avif')
-                ),
-             ),
-             Padding(
-               padding: const EdgeInsets.all(10),
-               child: Text(
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                'Large Title should be placed in this placed Large Title should be placed in this placed',
-                style: TextStyle(
-                  fontSize: 27 ,
-                ),
-               ),
-             ),
-             Padding(
-               padding: const EdgeInsets.symmetric(vertical: 1 , horizontal: 7),
-               child: Text(
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                'small Title should be placed in this placed small ',
-                style: TextStyle(
-                  fontSize: 20 ,
-                  color: Colors.grey,
-                ),
-               ),
-             ),
-            ],
+        children: [
+              
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.network(
+                    articalData.img!,
+                    height: 250,
+                    width: 400,
+                    fit: BoxFit.cover,
+                    )
+                  ),
+               
+            
+                  Text(
+                  articalData.title!,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 25 ,
+                  ),
+                 ),
+               
+               
+               Text(
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                   articalData.subTitle!,
+                  style: TextStyle(
+                    fontSize: 19 ,
+                    color: Colors.grey,
+                  ),
+                 ),
+               
+              ],
+      ),
     );
   }
 }
