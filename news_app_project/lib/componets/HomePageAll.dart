@@ -18,20 +18,23 @@ class HomePageAll extends StatefulWidget {
 }
 
 class _HomePageAllState extends State<HomePageAll> {
-  List<ArticlesModel> dataList = [] ;
+  List<ArticlesModel> dataList = [];
   @override
-  void initState(){
-    // TODO: implement initState 
+  void initState() {
+    // TODO: implement initState
     super.initState();
     GetGenralNews();
   }
 
   Future<void> GetGenralNews() async {
     dataList = await NewsServices(Dio()).getGenralNews();
+    setState(() {
+      
+    });
   }
+
   @override
   Widget build(BuildContext context) {
-  
     return CustomScrollView(
       slivers: [
         SliverToBoxAdapter(
