@@ -17,38 +17,40 @@ class AllNewsBuilder extends StatefulWidget {
 
 class _AllNewsBuilderState extends State<AllNewsBuilder> {
   // ignore: non_constant_identifier_names
-  List<ArticlesModel> DataList = [];
-  bool isLoading = true;
+  var FutureData;
   @override
   void initState() {
     super.initState();
-    GetGenralNews();
+    FutureData = NewsServices(Dio()).getGenralNews(); // request once
   }
-
   // ignore: non_constant_identifier_names
-  Future<void> GetGenralNews() async {
-    DataList = await NewsServices(Dio()).getGenralNews();
-    isLoading = false;
-    setState(() {});
-  }
 
   @override
   Widget build(BuildContext context) {
-    return  isLoading ?
-             const SliverFillRemaining(child: Center(child: CircularProgressIndicator()))
-            : DataList.isEmpty ? const SliverFillRemaining(
+    return FutureBuilder<List<ArticlesModel>>( // edit type of data
+        future: FutureData, // passing data
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return AllNews(dataList: snapshot.data!);
+          } else if (snapshot.hasError) {
+            return const SliverFillRemaining(
               child: Padding(
                 padding: EdgeInsets.all(15),
                 child: Center(
                   child: Text(
-                    'Opps there was an error! , please try again later' ,
+                    'Opps there was an error! , please try again later',
                     style: TextStyle(
-                      color: Colors.black ,
+                      color: Colors.black,
                       fontSize: 25,
                     ),
                   ),
                 ),
               ),
-            ) : AllNews(dataList: DataList);
+            );
+          } else {
+            return const SliverFillRemaining(
+                child: Center(child: CircularProgressIndicator()));
+          }
+        });
   }
 }

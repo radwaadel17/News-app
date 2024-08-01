@@ -13,19 +13,22 @@ class NewsList extends StatelessWidget {
       child: Column(
         children: [
           ClipRRect(
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(10),
               child: Image.network(
                 articalData.img!,
                 height: 250,
                 width: 400,
                 fit: BoxFit.cover,
               )),
-          Text(
-            articalData.title!,
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-            style: const TextStyle(
-              fontSize: 25,
+          Padding(
+            padding: const EdgeInsets.only(top: 2),
+            child: Text(
+              articalData.title!,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: const TextStyle(
+                fontSize: 25,
+              ),
             ),
           ),
           Text(
