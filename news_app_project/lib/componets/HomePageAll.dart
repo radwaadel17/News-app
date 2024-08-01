@@ -1,3 +1,7 @@
+// ignore: file_names
+// ignore: file_names
+// ignore_for_file: unused_import
+
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app_project/Services/NewsService.dart';
@@ -30,7 +34,7 @@ class HomePageAll extends StatelessWidget {
                 }),
           ),
         ),
-        AllNewsBuilder(),
+        const AllNewsBuilder(),
       ],
     );
   }

@@ -1,3 +1,6 @@
+// ignore: file_names
+// ignore: file_names
+// ignore: file_names
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'AllNews.dart';
@@ -13,15 +16,17 @@ class AllNewsBuilder extends StatefulWidget {
 }
 
 class _AllNewsBuilderState extends State<AllNewsBuilder> {
-  @override
+  // ignore: non_constant_identifier_names
   List<ArticlesModel> DataList = [];
   bool isLoading = true;
+  @override
   void initState() {
     // TODO: implement initState
     super.initState();
     GetGenralNews();
   }
 
+  // ignore: non_constant_identifier_names
   Future<void> GetGenralNews() async {
     DataList = await NewsServices(Dio()).getGenralNews();
     isLoading = false;
@@ -32,7 +37,7 @@ class _AllNewsBuilderState extends State<AllNewsBuilder> {
   Widget build(BuildContext context) {
     return Center(
         child: isLoading
-            ? CircularProgressIndicator()
+            ? const CircularProgressIndicator()
             : AllNews(dataList: DataList));
   }
 }

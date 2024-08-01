@@ -1,3 +1,4 @@
+// ignore: camel_case_types
 class card {
  final String img ; 
  final String txt ;

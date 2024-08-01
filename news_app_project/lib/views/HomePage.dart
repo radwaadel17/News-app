@@ -1,6 +1,7 @@
+// ignore: file_names
+// ignore: file_names
+// ignore: file_names
 import 'package:flutter/material.dart';
-import 'package:news_app_project/componets/cardCategory.dart';
-import 'package:news_app_project/componets/news_list.dart';
 import 'package:news_app_project/models/card.dart';
 import '../componets/HomePageAll.dart';
 
@@ -42,7 +43,7 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
-        title: Row(
+        title: const Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(

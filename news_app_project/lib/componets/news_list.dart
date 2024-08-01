@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../models/ArticlesClass.dart';
 
+// ignore: must_be_immutable
 class NewsList extends StatelessWidget {
   NewsList({super.key, required this.articalData});
   ArticlesModel articalData;
@@ -23,7 +24,7 @@ class NewsList extends StatelessWidget {
             articalData.title!,
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 25,
             ),
           ),
@@ -31,7 +32,7 @@ class NewsList extends StatelessWidget {
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
             articalData.subTitle!,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 19,
               color: Colors.grey,
             ),

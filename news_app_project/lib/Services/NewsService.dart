@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'package:dio/dio.dart';
 import 'package:news_app_project/models/ArticlesClass.dart';
 

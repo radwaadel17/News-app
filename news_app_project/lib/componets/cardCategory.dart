@@ -1,3 +1,4 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:news_app_project/models/card.dart';
 
@@ -19,7 +20,7 @@ class CardCategory extends StatelessWidget {
         child: Center(
           child: Text(
             obj.txt,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.white,
             ),
           ),
