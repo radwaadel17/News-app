@@ -21,7 +21,6 @@ class _AllNewsBuilderState extends State<AllNewsBuilder> {
   bool isLoading = true;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     GetGenralNews();
   }
@@ -35,9 +34,21 @@ class _AllNewsBuilderState extends State<AllNewsBuilder> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-        child: isLoading
-            ? const CircularProgressIndicator()
-            : AllNews(dataList: DataList));
+    return  isLoading ?
+             const SliverFillRemaining(child: Center(child: CircularProgressIndicator()))
+            : DataList.isEmpty ? const SliverFillRemaining(
+              child: Padding(
+                padding: EdgeInsets.all(15),
+                child: Center(
+                  child: Text(
+                    'Opps there was an error! , please try again later' ,
+                    style: TextStyle(
+                      color: Colors.black ,
+                      fontSize: 25,
+                    ),
+                  ),
+                ),
+              ),
+            ) : AllNews(dataList: DataList);
   }
 }

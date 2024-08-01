@@ -63,7 +63,7 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
-      body: HomePageAll(catList: catList),
+     body: HomePageAll(catList: catList ),
     );
   }
 }
