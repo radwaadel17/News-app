@@ -27,7 +27,8 @@ class _AllNewsBuilderState extends State<AllNewsBuilder> {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<List<ArticlesModel>>( // edit type of data
+    return FutureBuilder<List<ArticlesModel>>(
+        // edit type of data
         future: FutureData, // passing data
         builder: (context, snapshot) {
           if (snapshot.hasData) {
