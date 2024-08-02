@@ -25,11 +25,7 @@ class NewsServices {
 List<ArticlesModel> getList(List<dynamic> articles) {
   List<ArticlesModel> articlesList = [];
   for (int i = 0; i < articles.length; i++) {
-    articlesList.add(ArticlesModel(
-      img: articles[i]['urlToImage'],
-      title: articles[i]['title'],
-      subTitle: articles[i]['description'],
-    ));
+    articlesList.add(ArticlesModel.fromjson(articles[i]));
   }
   return articlesList;
 }
