@@ -5,14 +5,14 @@ import 'package:news_app_project/models/ArticlesClass.dart';
 class NewsServices {
   final Dio dio;
   const NewsServices(this.dio);
-
-  Future<List<ArticlesModel>> getGenralNews() async {
+  final String apiKey = 'pub_50503eb74fcac9f5261c69d913f3d1b2fa1f5';
+  Future<List<ArticlesModel>> getGenralNews(String newsType) async {
     
     try {
       Response response = await dio.get(
-          'https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=e16edadcc5a34f43bf21fa9999da78e8');
+        'https://newsdata.io/api/1/latest?apikey=$apiKey&country=eg&image=1&language=ar&category=$newsType');
       Map<String, dynamic> jsonData = response.data;
-      List<dynamic> articles = jsonData['articles'];
+      List<dynamic> articles = jsonData['results'];
       List<ArticlesModel> articlesList = getList(articles);
       return articlesList;
       //  print(articlesList);

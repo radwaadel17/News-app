@@ -8,7 +8,7 @@ import 'package:news_app_project/Services/NewsService.dart';
 import '../models/card.dart';
 import 'AllNews.dart';
 import 'NewsListBuilder.dart';
-import 'cardCategory.dart';
+import 'smallCards.dart';
 import 'news_list.dart';
 import '../models/ArticlesClass.dart';
 

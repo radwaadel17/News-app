@@ -18,7 +18,7 @@ class HomePage extends StatelessWidget {
     ),
     card(
       img: 'assets/general.avif',
-      txt: 'Genral',
+      txt: 'other',
     ),
     card(
       img: 'assets/health.avif',

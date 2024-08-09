@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:news_app_project/componets/NewsListBuilder.dart';
+import 'package:news_app_project/componets/AllNews.dart';
+import 'package:news_app_project/componets/CustomBuilder.dart';
+import 'package:news_app_project/componets/news_list.dart';
 
-class CardPage extends StatelessWidget {
-  const CardPage({super.key});
+import '../componets/NewsListBuilder.dart';
 
+class smallcardsresponse extends StatelessWidget {
+  smallcardsresponse({super.key, required this.txt});
+  final String txt ;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:  AppBar(
+      appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
         title: const Padding(
-          padding: EdgeInsets.only(right: 55),
+          padding: EdgeInsets.only(right: 54),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -32,9 +36,12 @@ class CardPage extends StatelessWidget {
             ],
           ),
         ),
-      ),
-      body : const AllNewsBuilder(),
+      ),      
+        body:  CustomScrollView(
+          slivers: [
+            customBuilder(type: txt),
+          ],
+        )
     );
-    
   }
 }

@@ -7,23 +7,23 @@ import 'AllNews.dart';
 import '../Services/NewsService.dart';
 import '../models/ArticlesClass.dart';
 
-class AllNewsBuilder extends StatefulWidget {
-
-  const AllNewsBuilder({
+class customBuilder extends StatefulWidget {
+  final String type;
+  const customBuilder({
     super.key,
-
+    required this.type,
   });
   @override
-  State<AllNewsBuilder> createState() => _AllNewsBuilderState();
+  State<customBuilder> createState() => _customBuilderState();
 }
 
-class _AllNewsBuilderState extends State<AllNewsBuilder> {
+class _customBuilderState extends State<customBuilder> {
   // ignore: non_constant_identifier_names
   var FutureData;
   @override
   void initState() {
     super.initState();
-    FutureData = NewsServices(Dio()).getGenralNews('world'); // request once
+    FutureData = NewsServices(Dio()).getGenralNews(widget.type); // request once
   }
   // ignore: non_constant_identifier_names
 
